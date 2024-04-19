@@ -29,7 +29,7 @@ if (Array.isArray(categories) && categories.length > 0) {
 
 const groups = function () {
     const groupedPosts = posts.reduce((grouped, post) => {
-        const year = post.data.published.getFullYear()
+        const year = post.data.DateStarted.getFullYear()
         if (!grouped[year]) {
             grouped[year] = []
         }
@@ -79,7 +79,7 @@ function formatTag(tag: string[]) {
                         <div class="flex flex-row justify-start items-center h-full">
                             <!-- date -->
                             <div class="w-[15%] md:w-[10%] transition text-sm text-right text-50">
-                                {formatDate(post.data.published)}
+                                {formatDate(post.data.DateStarted)}
                             </div>
                             <!-- dot and line -->
                             <div class="w-[15%] md:w-[10%] relative dash-line h-full flex items-center">

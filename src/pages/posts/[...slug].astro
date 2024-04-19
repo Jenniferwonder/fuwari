@@ -66,7 +66,7 @@ const { remarkPluginFrontmatter } = await entry.render();
             <div class="onload-animation">
                 <PostMetadata
                         class="mb-5"
-                        published={entry.data.published}
+                        DateStarted={entry.data.DateStarted}
                         tags={entry.data.tags}
                         category={entry.data.category}
                 ></PostMetadata>
@@ -84,7 +84,7 @@ const { remarkPluginFrontmatter } = await entry.render();
                 <Content />
             </Markdown>
 
-            {licenseConfig.enable && <License title={entry.data.title} slug={entry.slug} pubDate={entry.data.published} class="mb-6 rounded-xl license-container onload-animation"></License>}
+            {licenseConfig.enable && <License title={entry.data.title} slug={entry.slug} pubDate={entry.data.DateStarted} class="mb-6 rounded-xl license-container onload-animation"></License>}
 
         </div>
     </div>

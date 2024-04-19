@@ -12,7 +12,7 @@ interface Props {
     entry: any;
     title: string;
     url: string;
-    published: Date;
+    DateStarted: Date;
     tags: string[];
     category: string;
     image: string;
@@ -21,7 +21,7 @@ interface Props {
     draft: boolean;
     style: string;
 }
-const { entry, title, url, published, tags, category, image, description, words, style } = Astro.props;
+const { entry, title, url, DateStarted, tags, category, image, description, words, style } = Astro.props;
 const className = Astro.props.class;
 
 const hasCover = image !== undefined && image !== null && image !== '';
@@ -44,7 +44,7 @@ const { remarkPluginFrontmatter } = await entry.render();
         </a>
 
         <!-- metadata -->
-        <PostMetadata published={published} tags={tags} category={category} hideTagsForMobile={true} class:list={{"mb-4": description, "mb-6": !description}}></PostMetadata>
+        <PostMetadata DateStarted={DateStarted} tags={tags} category={category} hideTagsForMobile={true} class:list={{"mb-4": description, "mb-6": !description}}></PostMetadata>
 
         <!-- description -->
         <div class="transition text-75 mb-3.5">
