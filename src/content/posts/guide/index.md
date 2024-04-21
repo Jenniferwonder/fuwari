@@ -38,7 +38,105 @@ draft: false
 
 ## Where to Place the Post Files
 
+Your post files should be placed in `src/content/posts/` directory. You can also create sub-directories to better organize your posts and assets.
 
+```
+src/content/posts/
+├── post-1.md
+└── post-2/
+    ├── cover.png
+    └── index.md
+```
+
+```
+## Where to Place the Post Files
+
+
+
+Your post files should be placed in `src/content/posts/` directory. You can also create sub-directories to better organize your posts and assets.
+
+```
+
+src/content/posts/
+├── post-1.md
+└── post-2/
+    ├── cover.png
+    └── index.md
+
+```
+
+```
+
+## Where to Place the Post Files
+
+Your post files should be placed in `src/content/posts/` directory. You can also create sub-directories to better organize your posts and assets.
+
+```
+src/content/posts/
+├── post-1.md
+└── post-2/
+    ├── cover.png
+    └── index.md
+```
+
+```
+## Where to Place the Post Files
+
+
+
+Your post files should be placed in `src/content/posts/` directory. You can also create sub-directories to better organize your posts and assets.
+
+```
+
+src/content/posts/
+├── post-1.md
+└── post-2/
+    ├── cover.png
+    └── index.md
+
+```
+
+```
+
+### T3-Where to Place the Post Files
+
+Your post files should be placed in `src/content/posts/` directory. You can also create sub-directories to better organize your posts and assets.
+
+```
+src/content/posts/
+├── post-1.md
+└── post-2/
+    ├── cover.png
+    └── index.md
+```
+
+#### T4-Where to Place the Post Files
+
+Your post files should be placed in `src/content/posts/` directory. You can also create sub-directories to better organize your posts and assets.
+
+```
+src/content/posts/
+├── post-1.md
+└── post-2/
+    ├── cover.png
+    └── index.md
+```
+
+## More Sections
+
+### T3-Where to Place the Post Files
+
+Your post files should be placed in `src/content/posts/` directory. You can also create sub-directories to better organize your posts and assets.
+
+```
+src/content/posts/
+├── post-1.md
+└── post-2/
+    ├── cover.png
+    └── index.md
+```
+
+#### T4-Where to Place the Post Files
 
 Your post files should be placed in `src/content/posts/` directory. You can also create sub-directories to better organize your posts and assets.
 

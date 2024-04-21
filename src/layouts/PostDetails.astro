@@ -1,22 +1,26 @@
 ---
-import Layout from "./Layout.astro";
-import Navbar from "@components/Navbar.astro";
-import SideBar from "@components/widget/SideBar.astro";
-import TOC from "@components/widget/Toc.astro";
-import {pathsEqual} from "@utils/url-utils";
-import Footer from "@components/Footer.astro";
-import BackToTop from "@components/control/BackToTop.astro";
-import {siteConfig} from "@/config";
+import type { CollectionEntry } from 'astro:content'
+import { siteConfig } from '@/config'
+import Footer from '@components/Footer.astro'
+import Navbar from '@components/Navbar.astro'
+import BackToTop from '@components/control/BackToTop.astro'
+import SideBar from '@components/widget/SideBar.astro'
+import TOC from '@components/widget/Toc.astro'
+// import { pathsEqual } from '@utils/url-utils'
+import { pathContains } from '@utils/url-utils'
+import Layout from './Layout.astro'
 
 interface Props {
-    title: string;
-    banner?: string;
+  title: string
+  banner?: string
+  posts: CollectionEntry<'posts'>
 }
-
 const { title, banner } = Astro.props
-const isHomePage = pathsEqual(Astro.url.pathname, '/')
+// const isPostPage = pathContains(Astro.url.pathname)
 const enableBanner = siteConfig.banner.enable
 
+const { posts } = Astro.props
+const { headings } = await posts.render()
 ---
 
 <Layout title={title} banner={banner}>
@@ -29,17 +33,38 @@ const enableBanner = siteConfig.banner.enable
     </div>
     <SideBar class="row-start-3 row-end-4 col-span-2 lg:row-start-2 lg:row-end-3 lg:col-span-1 lg:max-w-[17.5rem] onload-animation"></SideBar>
 
-    <div id="content-wrapper" class="row-start-2 row-end-3 col-span-2 lg:col-span-1 overflow-hidden onload-animation">
-        <!-- the overflow-hidden here prevent long text break the layout-->
-        <main id="swup" class="transition-fade">
-            <slot></slot>
-        </main>
-
-    </div>
-
+    <main id="swup" class="transition-fade row-start-2 row-end-3 col-span-2 lg:col-span-1 overflow-hidden">
+        <div id="content-wrapper" class=" overflow-hidden ">
+            <!-- the overflow-hidden here prevent long text break the layout-->
+            <div >
+                <slot></slot>
+            </div>
+        </div>
+        {!!headings.length && <TOC headings={headings} />}
+    </main>
+    
     <div id="footer" class="grid-rows-3 col-span-2 mt-4 onload-animation">
         <Footer></Footer>
     </div>
     <BackToTop></BackToTop>
 </div>
 </Layout>
+
+<script is:inline>
+    /** Attaches links to headings in the document,
+      *  allowing sharing of sections easily */
+      function addHeadingLinks() {
+       let headings = Array.from(document.querySelectorAll("h2, h3, h4, h5, h6"));
+       for (let heading of headings) {
+         heading.classList.add("group");
+         let link = document.createElement("a");
+         link.innerText = "";
+         link.className = "heading-link hidden link-lg transition text-50 text-sm font-medium hover:text-[var(--primary)] dark:hover:text-[var(--primary)] whitespace-nowrap ml-2";
+         link.href = "#" + heading.id;
+         link.ariaHidden = "true";
+         heading.appendChild(link);
+       }
+       console.log(headings);
+     }
+     addHeadingLinks();
+</script>
