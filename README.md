@@ -1,55 +1,66 @@
-# 🍥Fuwari
+<h1 align="center">瞻思笔记 | Technote</h1>
+<p align="center">
+  <i>瞻思笔记是一个分享编程笔记的网站，基于 Astro 与 fuwari 模板构建</i>
+  <br/>
+<b><a href="https://jenniferwonder.github.io/technote">🌍在线访问</a></b> | <b><a href="https://github.com/jenniferwonder/technote">GitHub</a></b>
+  <br/><br/>
+  <a href="./LICENSE">
+    <img src="https://img.shields.io/badge/License-MIT-0aa8d2?logo=opensourceinitiative&logoColor=fff" alt="License MIT">
+  </a>
+</p>
 
-A static blog template built with [Astro](https://astro.build).
+### 本站使用的技术和工具
 
-[**🖥️Live Demo (Vercel)**](https://fuwari.vercel.app)&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;[**🌏中文 README**](https://github.com/saicaca/fuwari/blob/main/README.zh-CN.md)&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;[**📦Old Hexo Version**](https://github.com/saicaca/hexo-theme-vivia)
+- 主框架：[Astro](https://astro.build)
+- 模板：[fuwari](https://github.com/jenniferwonder/fuwari)
+- 样式：Tailwind, Stylus
+- 交互: Svelte
+- 笔记编辑与管理：Obsidian
 
-![Preview Image](https://raw.githubusercontent.com/saicaca/resource/main/fuwari/home.png)
+### 功能特性
 
-## ✨ Features
+- [x] 原模版标签、分类按命名排序，调整为按笔记数量排序 ✅ 2024-04-19
+- [ ] 添加单页目录 ToC
+- [ ] 添加边栏隐藏，宽屏视图
+- [ ] 标签组件改为标签云样式
+- [ ] 添加多语种支持
 
-- [x] Built with [Astro](https://astro.build) and [Tailwind CSS](https://tailwindcss.com)
-- [x] Smooth animations and page transitions
-- [x] Light / dark mode
-- [x] Customizable theme colors & banner
-- [x] Responsive design
-- [ ] Comments
-- [x] Search
-- [ ] TOC
+### 界面展示
 
-## 🚀 How to Use
+![screely-1713582572477.png](https://cdn.jsdelivr.net/gh/jenniferwonder/bimg/full-stack/astro-blog-technote.png)
 
-1. [Generate a new repository](https://github.com/saicaca/fuwari/generate) from this template or fork this repository.
-2. To edit your blog locally, clone your repository, run `pnpm install` AND `pnpm add sharp` to install dependencies.  
-   - Install [pnpm](https://pnpm.io) `npm install -g pnpm` if you haven't.
-3. Edit the config file `src/config.ts` to customize your blog.
-4. Run `pnpm new-post <filename>` to create a new post and edit it in `src/content/posts/`.
-5. Deploy your blog to Vercel, Netlify, GitHub Pages, etc. following [the guides](https://docs.astro.build/en/guides/deploy/). You need to edit the site configuration in `astro.config.mjs` before deployment. 
+### 自定义配置
 
-## ⚙️ Frontmatter of Posts
+- 自定义笔记 yaml (可选)
+  - [x] 自定义笔记发布时间 yaml：`publish` 批量转 `DateCreated` ✅ 2024-04-18
+- 自定义个人信息组件相关链接及配置 Icon (可选)
+  - [x] 自定义 Icon: [Open Source Icon Sets - Iconify](https://icon-sets.iconify.design/) ✅ 2024-04-18
+- 自定义发布网址与页面路由
+  - [x] 自定义发布路径: `https://jenniferwonder.github.io/technote` ✅ 2024-04-18
+  - [x] 页面根路由 `/` 转 `/technote`，避免原路径跳转报错 ✅ 2024-04-18
+    - vs code `ctrl p` 打开受影响组件，并更新对应路由
+- 笔记图片与链接批量更新处理，统一管理，同时避免渲染出错
+  - [x] 图片批量压缩上传 gh ✅ 2024-04-18
+    - `git` + PicList 管理
+  - [x] 图片链接批量处理，本地链接转远程 gh 远程链接 ✅ 2024-04-18
+    - vs code 批量替换
+  - [x] 笔记内链设为相对路径，wikilink 批量转 markdown link ✅ 2024-04-18
+    - 使用插件：[obsidian-consistent-attachments-and-links](https://github.com/dy-sh/obsidian-consistent-attachments-and-links)
 
-```yaml
----
-title: My First Blog Post
-published: 2023-09-09
-description: This is the first post of my new Astro blog.
-image: /images/cover.jpg
-tags: [Foo, Bar]
-category: Front-end
-draft: false
----
-```
+### 批量发布
 
-## 🧞 Commands
+- ❌Astro 官方推荐 workflow 运行会报错，无法识别本项目中的图片链接转换代码
+- ✅可行发布方案：
+  - `npm run build` 本地构建生成 `dist` 文件夹
+  - 配置 GitHub action workflow 将 `dist` 发布至 GitHub Pages
+    - 使用 `gh-pages`
 
-All commands are run from the root of the project, from a terminal:
+<p align="center">
+  <br>
 
-| Command                             | Action                                           |
-|:------------------------------------|:-------------------------------------------------|
-| `pnpm install` AND `pnpm add sharp` | Installs dependencies                            |
-| `pnpm dev`                          | Starts local dev server at `localhost:4321`      |
-| `pnpm build`                        | Build your production site to `./dist/`          |
-| `pnpm preview`                      | Preview your build locally, before deploying     |
-| `pnpm new-post <filename>`          | Create a new post                                |
-| `pnpm astro ...`                    | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro --help`                 | Get help using the Astro CLI                     |
+  <a href="https://github.com/jenniferwonder/technote">
+    <img src="https://github.githubassets.com/images/icons/emoji/octocat.png" />
+  </a>
+  <br><br>
+  <i>Thank you for Visiting</i>
+</p>

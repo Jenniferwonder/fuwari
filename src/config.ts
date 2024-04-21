@@ -8,7 +8,7 @@ import { LinkPreset } from "./types/config";
 
 export const siteConfig: SiteConfig = {
 	title: "瞻思笔记",
-	subtitle: "Demo Site",
+	subtitle: "Technote",
 	lang: "zh_CN",
 	themeHue: 250,
 	banner: {
