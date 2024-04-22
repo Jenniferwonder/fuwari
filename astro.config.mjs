@@ -25,6 +25,13 @@ const oklchToHex = str => {
 export default defineConfig({
   site: 'https://jenniferwonder.github.io/technote',
   base: '/technote',
+  prefetch: {
+    defaultStrategy: 'hover',
+    prefetchAll: true,
+  },
+  experimental: {
+    contentCollectionCache: true,
+  },
   // i18n: {
   //   defaultLocale: "en",
   //   locales: ["en", "es", "pt-br"],
@@ -34,16 +41,18 @@ export default defineConfig({
   // },
   integrations: [
     tailwind(),
-    swup({
-      theme: false,
-      animationClass: 'transition-',
-      containers: ['main'],
-      smoothScrolling: true,
-      cache: false,
-      preload: false,
-      accessibility: true,
-      globalInstance: true,
-    }),
+    //Ref: https://github.com/swup/astro?tab=readme-ov-file#configuration
+    // swup({
+    //   theme: false,
+    //   animationClass: 'transition-',
+    //   containers: ['main'],
+    //   smoothScrolling: true,
+    //   cache: true,
+    //   preload: true,
+    //   accessibility: true,
+    //   globalInstance: true,
+    //   loadOnIdle: false,
+    // }),
     icon({
       include: {
         'material-symbols': ['*'],
